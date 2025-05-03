@@ -296,3 +296,7 @@ form .btn2{
     font-weight: 300;
     margin-top: 20px;
 }
+#msg{
+    display: block;
+    color: rgb(83, 129, 83);
+}

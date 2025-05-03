@@ -44,7 +44,11 @@
                 </div>
                 <div class="about-col-2">
                     <h1 class="heading">About Me</h1>
-                    <p>" I am currently pursuing an undergraduate degree in Computer Science and Engineering (B.Tech). I have a keen interest in technology and aspire to build a successful career in the tech industry. Beyond academics, I enjoy sketching, dancing, and playing volleyball. I am passionate about networking, upgrading my skills, and continuously learning new things. My strengths include being friendly, trustworthy, and always willing to help others."  
+                    <p>" I am currently pursuing an undergraduate degree in Computer Science and Engineering (B.Tech). I
+                        have a keen interest in technology and aspire to build a successful career in the tech industry.
+                        Beyond academics, I enjoy sketching, dancing, and playing volleyball. I am passionate about
+                        networking, upgrading my skills, and continuously learning new things. My strengths include
+                        being friendly, trustworthy, and always willing to help others."
                     </p>
                     <div class="tab-titles">
                         <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
@@ -158,16 +162,17 @@
                         <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i></a>
                         <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
                     </div>
-                    <a href="images/Screenshot_2025-03-17_232625-removebg-preview.png" download=""
-                        class="btn2">Download CV</a>
+                    <a href="images/Screenshot_2025-03-17_232625-removebg-preview.png" download="" class="btn2">Download
+                        CV</a>
                 </div>
                 <div class="contact-right">
                     <form name="submit-to-google-sheet">
                         <input type="text" name="Name" placeholder="Your name" required>
-                        <input type="email" name="email" placeholder="Your E-mail" required>
-                        <textarea name="message" row="row" placeholder="Your message"></textarea>
+                        <input type="email" name="Email" placeholder="Your E-mail" required>
+                        <textarea name="Message" row="row" placeholder="Your message"></textarea>
                         <button type="submit" class="btn2">Submit</button>
                     </form>
+                    <span id="msg"></span>
                 </div>
             </div>
         </div>
@@ -196,9 +201,27 @@
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script>
         var typed = new Typed('#element', {
-            strings: [' I am a Web Developer ', ' App Developer ','and A Video Editor...',],
+            strings: [' I am a Web Developer ', ' App Developer ', 'and A Video Editor...',],
             typeSpeed: 50,
         });
+    </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxXrNiopmuG177H_ZvVit5ciJuy8hi-rjj2j5tUcH8BSLqcu1p6t4G5ULu099yeEYZcvA/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    msg.innerHTML = "Message sent successfully"
+                    setTimeout(function () {
+                        msg.innerHTML = ""
+                    }, 5000)
+                    form.reset()
+                })
+            .catch(error => console.error('Error!', error.message))
+        })
     </script>
 </body>
 
