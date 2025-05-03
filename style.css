@@ -18,11 +18,56 @@ body{
 .container{
     padding: 10px 10%;
 }
-nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
 }
+.logo{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#red{
+    color: red;
+}
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    #nav-links {
+        display: none;
+        width: 100%;
+        background-color: #0f0f16;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        z-index: 1000;
+    }
+
+    #nav-links ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #nav-links ul li {
+        margin: 15px 0;
+    }
+
+    #nav-links.active {
+        display: block;
+    }
+
+    .container nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+}
+
 
 nav ul li{
     display: inline-block;
@@ -299,4 +344,130 @@ form .btn2{
 #msg{
     display: block;
     color: rgb(83, 129, 83);
+}
+/* ------------------- Responsive Design ------------------- */
+@media (max-width: 992px) {
+    .container {
+        padding: 10px 5%;
+    }
+
+    nav ul li {
+        margin: 10px 10px;
+    }
+
+    .header-text {
+        margin-top: 30%;
+        font-size: 24px;
+    }
+
+    .header-text h1 {
+        font-size: 40px;
+    }
+
+    .about-col-1,
+    .about-col-2 {
+        flex-basis: 100%;
+    }
+
+    .about-col-2 h1 {
+        font-size: 40px;
+    }
+
+    .services-list div {
+        padding: 60px 30px;
+    }
+
+    .services-list div h2 {
+        font-size: 24px;
+    }
+
+    .services-list div i {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul {
+        padding: 10px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .heading {
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .tab-titles {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tab-links {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .contact-left,
+    .contact-right {
+        flex-basis: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-text {
+        margin-top: 40%;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .header-text h1 {
+        font-size: 28px;
+    }
+
+    .tab-links {
+        font-size: 16px;
+    }
+
+    .services-list div {
+        padding: 40px 20px;
+        font-size: 16px;
+    }
+
+    .services-list div h2 {
+        font-size: 20px;
+    }
+
+    .services-list div i {
+        font-size: 30px;
+    }
+
+    .btn2 {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+
+    form input,
+    form textarea {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .social-icons a {
+        font-size: 24px;
+    }
 }
