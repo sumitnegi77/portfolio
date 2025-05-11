@@ -233,6 +233,7 @@
             fetch(scriptURL, { method: 'POST', body: new FormData(form) })
                 .then(response => {
                     msg.innerHTML = "Message sent successfully"
+                    alert("Detailed submitted")
                     setTimeout(function () {
                         msg.innerHTML = ""
                     }, 5000)
